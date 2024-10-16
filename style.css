@@ -14,10 +14,12 @@ body{
     margin: 0;
     color: var(--Very-Dark-Grayish-Cyan);
 }
+header{
+    position: relative;
+}
 header img{
     background-color: var(--Desaturated-Dark-Cyan);
 }
-
 .desktop{
     width: 100%;
 }
@@ -25,6 +27,69 @@ header img{
     display: none;
     width: 100%;
 }
+
+.filter-set{
+    position: absolute;
+    bottom: -30%;
+    right: 10%;
+    width: 78vw;
+    box-sizing: border-box;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    background-color: white;
+    padding: 18px;
+}
+.filter-set div{
+    /* box-sizing: border-box; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
+}
+.filter-set span{
+    display: inline;
+    padding-top: 20px;
+    width: 30px;
+}
+.filter-set section{
+    /* display: flex; */
+    color: var(--Desaturated-Dark-Cyan);
+    overflow: hidden;
+    padding-left: 8px;
+    height: 30px;
+    background-color: var(--Light-Grayish-Cyan);
+    border-radius: 5px;
+}
+.filter-set section button{
+    height: 100%;
+    width: 28px;
+    margin-left: 6px;
+    color: white;
+    border: none;
+    background-color: var(--Desaturated-Dark-Cyan);
+}
+.filter-set section button:hover{
+    background-color: var(--Very-Dark-Grayish-Cyan);
+}
+.f-clear{
+    /* align-self: self-end; */
+    padding: 0;
+    background-color: hsla(39, 77%, 83%, 0);
+    border: none;
+    font-weight: 700;
+    color: var(--Dark-Grayish-Cyan);
+}
+.f-clear:hover{
+    color: var(--Desaturated-Dark-Cyan);
+    border-bottom: 1px solid var(--Desaturated-Dark-Cyan);
+}
+
+
+
+
 .container{
     padding: 64px 11vw;
 }
@@ -102,6 +167,10 @@ header img{
     margin-left: 18px;
     background-color: var(--Light-Grayish-Cyan-filter);
 }
+.filter-holder button:hover{
+    color: white;
+    background-color: var(--Desaturated-Dark-Cyan);
+}
 /* .separator{
     display: none;
     margin: 0;
@@ -114,6 +183,9 @@ hr{
 }
 
 @media (max-Width: 850px){
+    .filter-c{
+        padding: 0 6.4vw;
+    }
     .container{
         padding: 32px 6.4vw;
     }
@@ -150,6 +222,9 @@ hr{
 }
 
 @media (max-Width: 630px){
+    header{
+        margin-bottom: 32px;
+    }
     .item {
         margin-top: 10%;
     }
