@@ -31,11 +31,11 @@ header img{
 .filter-set{
     position: absolute;
     bottom: -30%;
-    right: 10%;
+    right: 10.58%;
     width: 78vw;
     box-sizing: border-box;
     font-weight: 700;
-    display: flex;
+    display: none;
     align-items: center;
     gap: 8px;
     border-radius: 4px;
@@ -100,7 +100,7 @@ header img{
     align-items: center;
     box-shadow: 0 8px 16px  hsl(180, 29%, 50%, 20%);
     border-radius: 8px;
-    border-left: 8px solid var(--Desaturated-Dark-Cyan);
+    /* border-left: 8px solid var(--Desaturated-Dark-Cyan); */
     padding: 28px;
     margin-bottom: 24px;
 }
@@ -137,13 +137,19 @@ header img{
     margin-left: 8px;
 }
 .tag-holder span{
+    display: none;
     color: white;
-    background-color: var(--Desaturated-Dark-Cyan);
+    /* background-color: var(--Desaturated-Dark-Cyan); */
     border-radius: 14px;
     padding: 6px 8px;
     padding-top: 9px;
 }
+.tag-holder .new{
+    display: inline;
+    background-color: var(--Desaturated-Dark-Cyan);
+}
 .tag-holder .featured{
+    display: inline;
     background-color: var(--Very-Dark-Grayish-Cyan);
 }
 .domain{
@@ -185,6 +191,9 @@ hr{
 @media (max-Width: 850px){
     .filter-c{
         padding: 0 6.4vw;
+    }
+    .filter-set{
+        right: 10%;
     }
     .container{
         padding: 32px 6.4vw;

@@ -29,18 +29,18 @@
         <div class="f-container" >
           <section>
             <span>Frontend</span>
-            <button>x</button>
+            <button type="Frontend" >x</button>
           </section>
           <section>
             <span>CSS</span>
-            <button>x</button>
+            <button type="CSS" >x</button>
           </section>
           <section>
             <span>JavaScript</span>
-            <button>x</button>
+            <button type="JavaScript" >x</button>
           </section>
         </div>
-        <button class="f-clear" >
+        <button class="f-clear" onclick="clearTagList()" >
           Clear
         </button>
       </article>
@@ -55,7 +55,7 @@
           <section class="title-holder">
             <p class="domain" >Photosnap
               <span class="tag-holder" >
-                <span>NEW!</span>
+                <span class="new" >NEW!</span>
                 <span class="featured" >FEAUTURED</span>
               </span>
             </p>
@@ -70,43 +70,11 @@
           <div class="separtor" > <hr> </div>
 
           <section class="filter-holder" >
-            <button>Frontend</button>
-            <button>Senior</button>
-            <button>HTML</button>
-            <button>CSS</button>
-            <button>JavaScript</button>
-          </section>
-        </div>
-      </article>
-
-      <article class="item" >
-        <div class="i-image" >
-          <img src="./images/photosnap.svg" >
-        </div>
-        <div class="i-body" >
-          <section class="title-holder">
-            <p class="domain" >Photosnap
-              <span class="tag-holder" >
-                <span>NEW!</span>
-                <span class="featured" >FEAUTURED</span>
-              </span>
-            </p>
-            <p class="title" >Senior Frontend Developer</p>
-            <p class="usues" >
-              <span>1d ago</span>.
-              <span>Full Time</span>.
-              <span>USA only</span>
-            </p>
-          </section>
-
-          <div class="separtor" ><hr></div>
-
-          <section class="filter-holder" >
-            <button onclick="" >Frontend</button>
-            <button onclick="" >Senior</button>
-            <button onclick="" >HTML</button>
-            <button onclick="" >CSS</button>
-            <button onclick="" >JavaScript</button>
+            <button onclick="filterList(this)" >Frontend</button>
+            <button onclick="filterList(this)" >Senior</button>
+            <button onclick="filterList(this)" >HTML</button>
+            <button onclick="filterList(this)" >CSS</button>
+            <button onclick="filterList(this)" >JavaScript</button>
           </section>
         </div>
       </article>
