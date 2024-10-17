@@ -17,17 +17,16 @@ let items;
 fetch('./data.json')
     .then(response => {
         if(!response.ok){
-            throw new Error('Error con la solicitud' + response.statusText);
+            throw new Error('Error in the request ' + response.statusText);
         }
         return response.json()
     })
     .then( data =>{
         dataJson = data
-        // alert(dataJson[1].id)
         tplteRenderer(dataJson)
     })
     .catch(error => {
-        alert('Errror' + error)
+        alert('ERROR!' + error)
 })
 
 
@@ -39,27 +38,11 @@ let tplteRenderer = (data)=>{
     data.forEach(element => {
         filtersItems[index] = filtersCollect(element)
         filterAuxTemplate[index] = filterTemplateGenerator(filtersItems[index]);
-        // let filters = element.languages;
-        // let listFill = [''];
-        // let otherIndex = 0;
-        // filters.forEach(filter => {
-        //     listFill[otherIndex] = `${filter}`;
-            
-        //     otherIndex ++;
-        // });
-
-
-        // filtersItems[index] = listFill;
-
-
-        // alert(listFill)
-        // alert(filtersItems[index])
-        // alert(filterAuxTemplate[index])
 
         auxTemplate += `
             <article class="item" >
                 <div class="i-image" >
-                    <img src=${element.logo} >
+                    <img src=${element.logo} alt="logo" >
                 </div>
                 <div class="i-body" >
                     <section class="title-holder">
@@ -126,13 +109,17 @@ let refreshTags = ( newsList, featuredList, data)=> {
 }
 
 let filtersCollect = (element) =>{
-    let filters = element.languages;
+    const Langfilters = element.languages;
+    const ToolFilters = element.tools;
     let listFill = [''];
-    let otherIndex = 0;
-    filters.forEach(filter => {
-        listFill[otherIndex] = `${filter}`;
-        
-        otherIndex ++;
+    let auxIndex = 0;
+    Langfilters.forEach(filter => {
+        listFill[auxIndex] = `${filter}`;
+        auxIndex ++;
+    });
+    ToolFilters.forEach(filter => {
+        listFill[auxIndex] = `${filter}`;
+        auxIndex ++;
     });
     return listFill;
 }
@@ -147,12 +134,7 @@ let filterTemplateGenerator = (elementList)=>{
 }
 
 let filterListController = (tagButton)=> {
-    //todo recibir el tag y analizar si puede annadirse o debe cambiarse
-    TagList.push(`${tagButton.innerText}`)
-    //Todo anters de annadir el contenido anterior
-    // alert(tagButton.innerText)
-    
-    tagListRendering();
+    validTagFilter(tagButton.innerText);
 }
 
 let tagListRendering=()=>{
@@ -164,7 +146,7 @@ let tagListRendering=()=>{
             auxTemplate += `
             <section>
                 <span>${tag}</span>
-                <button onclick="dequeueTag(this)" type="${tag}" >x</button>
+                <button onclick="dequeueTag(this)" name="${tag}" >x</button>
             </section>`
         });
         filterContainer.innerHTML = auxTemplate;
@@ -177,19 +159,13 @@ let tagListRendering=()=>{
 
 let filterData = (tagList)=>{
     let dataList = [];
-
     dataJson.forEach(object => {
         let objectiveTagList = searchTagsByObject(object);
-        // alert(objectiveTagList);
 
-        //todo: Comparar si el objeto cumple con el filtrado (tagList) y en funcion de esto annadirlo o no a la DataList
-        // alert(compareTagList(objectiveTagList, tagList))
         if( compareTagList(objectiveTagList, tagList) == true ){
             dataList.push(object);
-            // alert(object)
         }
     });
-    //todo: LLamar al metodo de renderizado con los datos filtrados tplteRenderer(dataList)
     tplteRenderer(dataList);
 }
 
@@ -223,17 +199,29 @@ let compareTagList = (objectiveList, tagList) =>{
     return canPush;
 }
 
-
-
-
-
+let validTagFilter = (tagName)=>{
+    if(TagList.length != 0){
+        const index = TagList.indexOf(tagName);
+        if(index < 0){
+            TagList.push(tagName);
+            tagListRendering();
+        }else{
+            TagList.splice(index,1);
+            TagList.push(tagName);
+            tagListRendering();
+        }
+    }else{
+        TagList.push(tagName)
+        tagListRendering();
+    }
+}
 
 let dequeueTag = (tag)=> {
-    const index = TagList.indexOf(`${tag.type}`);
+    const index = TagList.indexOf(`${tag.name}`);
+    alert(tag.name)
     TagList.splice(index, 1);
     tagListRendering();
 }
-
 
 let clearTagList= ()=>{
     TagList = [];
