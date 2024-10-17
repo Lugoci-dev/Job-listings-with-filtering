@@ -218,7 +218,6 @@ let validTagFilter = (tagName)=>{
 
 let dequeueTag = (tag)=> {
     const index = TagList.indexOf(`${tag.name}`);
-    alert(tag.name)
     TagList.splice(index, 1);
     tagListRendering();
 }
