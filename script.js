@@ -63,8 +63,8 @@ let tplteRenderer = (data)=>{
                     <div class="separtor" > <hr> </div>
 
                     <section class="filter-holder" >
-                        <button onclick="filterListController(this)" >${element.role}</button>
-                        <button onclick="filterListController(this)" >${element.level}</button>
+                        <button onclick="filterListController(this)" translate="no" >${element.role}</button>
+                        <button onclick="filterListController(this)" translate="no" >${element.level}</button>
                     </section>
                 </div>
             </article>`;
@@ -127,7 +127,7 @@ let filterTemplateGenerator = (elementList)=>{
     let auxTemplate = ''
     elementList.forEach(element => {
         auxTemplate += `
-        <button onclick="filterListController(this)" >${element}</button>
+        <button onclick="filterListController(this)" translate="no" >${element}</button>
         `
     });
     return auxTemplate;
@@ -145,8 +145,8 @@ let tagListRendering=()=>{
         TagList.forEach(tag => {
             auxTemplate += `
             <section>
-                <span>${tag}</span>
-                <button onclick="dequeueTag(this)" name="${tag}" translate="no" >x</button>
+                <span translate="no" >${tag}</span>
+                <button onclick="dequeueTag(this)" name="${tag}" >x</button>
             </section>`
         });
         filterContainer.innerHTML = auxTemplate;

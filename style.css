@@ -132,7 +132,6 @@ button{
     margin-left: 8px;
 }
 .tag-holder span{
-    translate: no;
     display: none;
     color: white;
     border-radius: 14px;
@@ -158,6 +157,7 @@ button{
     flex-wrap: wrap;
     align-items: center;
     justify-content: end;
+    translate: no;
 }
 .filter-holder button{
     color: var(--Desaturated-Dark-Cyan);
