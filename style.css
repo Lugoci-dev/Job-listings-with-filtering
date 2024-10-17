@@ -20,6 +20,9 @@ header{
 header img{
     background-color: var(--Desaturated-Dark-Cyan);
 }
+button{
+    translate: no;
+}
 .desktop{
     width: 100%;
 }
@@ -129,6 +132,7 @@ header img{
     margin-left: 8px;
 }
 .tag-holder span{
+    translate: no;
     display: none;
     color: white;
     border-radius: 14px;

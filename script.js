@@ -46,7 +46,7 @@ let tplteRenderer = (data)=>{
                 </div>
                 <div class="i-body" >
                     <section class="title-holder">
-                    <p class="domain" >${element.company}
+                    <p class="domain" translate="no" >${element.company}
                         <span class="tag-holder">
                             <span>NEW!</span>
                             <span>FEAUTURED</span>
@@ -146,7 +146,7 @@ let tagListRendering=()=>{
             auxTemplate += `
             <section>
                 <span>${tag}</span>
-                <button onclick="dequeueTag(this)" name="${tag}" >x</button>
+                <button onclick="dequeueTag(this)" name="${tag}" translate="no" >x</button>
             </section>`
         });
         filterContainer.innerHTML = auxTemplate;
